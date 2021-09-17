@@ -59,6 +59,11 @@
             font-size: 16px;
             color: #4d4d4d
         }
+
+        #input {
+            width: 30%;
+            height: 32px;
+        }
         
         table {
             border-collapse: collapse;
@@ -163,6 +168,19 @@
             }
         }
     </style>
+    <script>
+        function searchProduct(input) {
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("searchTable").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "products.php?input=" +"'"+ input+"'", true);
+            xmlhttp.send();
+        }
+    </script>
 </head>
 
 <body>
@@ -191,13 +209,19 @@
             <div class="imgWrapper">
                 <img class="mainAreaPng" src="../purchase-guy.png" alt="Shop">
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolorem labore pariatur delectus iusto facilis deserunt ab omnis aut? Omnis numquam fuga esse dolores illo! Excepturi, ducimus? Et, cum cupiditate! Lorem, ipsum dolor sit amet
-                consectetur adipisicing elit. Fugiat dolorem labore pariatur delectus iusto facilis deserunt ab omnis aut? Omnis numquam fuga esse dolores illo! Excepturi, ducimus? Et, cum cupiditate! Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Fugiat dolorem labore pariatur delectus iusto facilis deserunt ab omnis aut? Omnis numquam fuga esse dolores illo! Excepturi, ducimus? Et, cum cupiditate!
-            </p>
             <div class="tableWrapper">
+                <div class="search-container">
+                    <form>
+                    <input id="input" type="text" placeholder="🔍  Pretražite po punom nazivu..." name="search" onkeyup="searchProduct(this.value)">
+                    <div id="searchTable">
+                        <?php 
+                            require ("../DZ-sjediste/products.php")
+                        ?>
+                    </div>
+                    </form>
+                </div>
                 <?php
-                    require('products.php');
+                    
                 ?>
             </div>
             <br><br>
