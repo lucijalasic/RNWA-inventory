@@ -213,7 +213,7 @@
             <div class="tableWrapper">
                 <div class="search-container">
                     <form>
-                    <input id="input" type="text" placeholder="🔍  Pretražite po punom nazivu..." name="search" onkeyup="searchProduct(this.value)">
+                    <input id="input" type="text" placeholder="🔍  Pretražite proizvod..." name="search" onkeyup="searchProduct(this.value)">
                     <div id="searchTable">
                         <?php 
                             require ("../DZ-sjediste/products.php")
