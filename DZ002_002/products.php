@@ -19,8 +19,6 @@
 
         $input = $_GET['product'];
 
-        echo $input;
-
         if($input == '""') {
             $sql = 'SELECT
                 p.product_name,
@@ -29,14 +27,14 @@
             FROM product p';
         }
         else {
-            $sql = 'SELECT
-                p.product_name,
-                p.quantity,
-                p.rate
-            FROM product p
-            WHERE p.product_name =' . $input;
+            $sql = "SELECT
+            p.product_name,
+            p.quantity,
+            p.rate
+        FROM product p
+        WHERE p.product_name LIKE '%".$input."%'";
         }
-        echo $sql;
+        
         $result = $conn->query($sql);
         
         if ($result != false && $result->num_rows > 0) {

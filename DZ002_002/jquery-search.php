@@ -174,7 +174,7 @@
             $.ajax({
                 url: "products.php",
                 method: "GET",
-                data: {product: '"'+input+'"'},
+                data: {product: input},
                 success: function(res)
                     {
                         $("#searchTable").html(res);

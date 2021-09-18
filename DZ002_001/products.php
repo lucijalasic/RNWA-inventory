@@ -27,17 +27,17 @@
             FROM product p';
         }
         else {
-            $sql = 'SELECT
+            $sql = "SELECT
                 p.product_name,
                 p.quantity,
                 p.rate
             FROM product p
-            WHERE p.product_name =' . $input;
+            WHERE p.product_name LIKE '%".$input."%'";
         }
         
         $result = $conn->query($sql);
         
-        if ($result->num_rows > 0) {
+        if ($result != false && $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo "<tr><td data-label=".'Naziv proizvoda'.">".$row["product_name"]."</td><td data-label=".'Količina'.">".$row["quantity"]."</td><td data-label=".'Ocjena'.">".$row["rate"]."</td></tr>";
             }
