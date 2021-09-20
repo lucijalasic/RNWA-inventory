@@ -12,7 +12,7 @@ function getOrders($ime) {
 					<th>Proizvod</th>
 					<th>Količina</th>
 					<th>Iznos</th>
-					<th>Status</th>
+					<th>Status plaćanja</th>
 					</tr>
 				</thead>
 				<tbody> ";
@@ -53,7 +53,7 @@ function getOrders($ime) {
 		}
 		else {
 			return '<div style="color: red;">
-						--Traženi klijent '.$clientName.' nema trenutno narudžbi ili ste unijeli neispravno ime!
+						* Klijent <span style="color: black; font-weight: bold;">'.$clientName.' </span>nema trenutno narudžbi ili ste unijeli neispravno ime!
 					</div>';
 		}
 } 

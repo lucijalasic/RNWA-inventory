@@ -212,7 +212,7 @@
                                     $ime = $_POST['ime'];
 
                                     $client = new SoapClient(null, array(
-                                        'location' => "http://localhost/RNWA-inventory/DZ003__001/without-wsdl-server.php",
+                                        'location' => "http://localhost/RNWA-inventory/DZ003_001/without-wsdl-server.php",
                                         'uri'      => "http://test-uri")
                                         );  
                                     
