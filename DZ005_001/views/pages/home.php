@@ -1,0 +1,1 @@
+<p>There's no place like home(page)!</p>
